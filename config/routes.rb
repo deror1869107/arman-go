@@ -11,6 +11,8 @@ ArmanPlanner::Application.routes.draw do
 
   get "about" => "about#index"
 
+  get "json" => "home#json", defaults: { format: 'json' }
+
   resources :plans
 
   # Example of regular route:
