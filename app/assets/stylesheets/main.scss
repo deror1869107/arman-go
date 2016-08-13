@@ -1,4 +1,6 @@
-
+.checkbox {
+  margin:30px;
+}
 .main{
   .text-muted {
     color: #777777;
@@ -14,17 +16,17 @@
         width: auto;
         top:0;
         position:relative;
-      }   
+      }
       .service-heading{
         margin-top:80px;
         font-color:#353535;
-      } 
+      }
       .text-muted{
         font-size: 1.6em;
         top:50%;
         font-color:#353535;
         position:relative;
-        margin:70px 0 0 0; 
+        margin:70px 0 0 0;
       }
     }
   }
@@ -286,7 +288,7 @@
     margin-bottom: 25px;
     color:#e0e7ea;
     padding:10px;
-    
+
   }
   @media (min-width: 768px) {
     header .intro-text {
@@ -754,7 +756,7 @@
       li a{
         color:#353535;
       }
-    
+
   }
   ul.social-buttons {
     margin-bottom: 0;
@@ -908,7 +910,7 @@ i.fa-facebook{
 }
 section.museum-tag{
   @include header('historical.jpg',-120px);
-  
+
 }
 section.temple-tag{
   @include header('temple.jpg',-50px);

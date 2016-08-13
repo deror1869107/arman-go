@@ -1,51 +1,70 @@
-
 <div class="create-new-plan">
   <% @historicals = Location.all.select { |l| l.location_type == 1 } %>
   <% @temples = Location.all.select { |l| l.location_type == 2 } %>
   <% @museums = Location.all.select { |l| l.location_type == 3 } %>
   <%= simple_form_for @plan do |f| %>
-    <%= f.input :name , class: "plan-header"%>
-    <%= f.label "Start", class: "plan-header" %>
-    <p>Default: Taipei Main Station</p>
-    <br>
-    <section class="museum-tag"> <p class="filter"><%= f.label "Historical sites", class: "historicals-tag" %></p></section>
-    <br>
-    <section class="sites-area">
-    <% @historicals.each do |h| %>
-      <%= h.en_name %>
-      <%= h.ch_name %>
-      <%= h.description.truncate(200) %>
-    <% end %>
-
-    <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => :en_name, :value_method => :id %>
-    <br>
-    </section>
-    <hr>
-    <section class="temple-tag"><p class="filter"><%= f.label "Temple" , class: "temple-tag"%></p></section>
-    <br>
-    <section class="sites-area">
-    <% @temples.each do |h| %>
-      <%= h.en_name %>
-      <%= h.ch_name %>
-      <%= h.description.truncate(200) %>
-    <% end %>
-    <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => :en_name, :value_method => :id %>
-    <br>
-    </section>
-    <hr>
-    <section class="nature-tag"><p class="filter"> <%= f.label "Nature", class: "museum-tag"%> </p></section>
-    <br>
-    <section class="sites-area">
-    <% @museums.each do |h| %>
-      <%= h.en_name %>
-      <%= h.ch_name %>
-      <%= h.description.truncate(200) %>
-    <% end %>
-    <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => :en_name, :value_method => :id %>
-    </section>
-    <br>
-    <%= f.label "End", class: "plan-header" %>
-    <p>Default: Taipei Main Station</p>
-    <%= f.submit %>
+  <%= f.input :name , class: "plan-header"%>
+  <%= f.label "Start", class: "plan-header" %>
+  <p>Default: Taipei Main Station</p>
+  <br>
+  <section class="museum-tag"> <p class="filter"><%= f.label "Historical sites", class: "historicals-tag" %></p></section>
+  <br>
+  <section class="sites-area">
+    <div class="row">
+      <div class="col-md-9">
+        <% @historicals.each do |h| %>
+        <%= h.en_name %>
+        <%= h.ch_name %>
+        <br>
+        <%= h.description.truncate(200) %>
+        <br>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => :en_name, :value_method => :id %>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section class="temple-tag"><p class="filter"><%= f.label "Temple" , class: "temple-tag"%></p></section>
+  <br>
+  <section class="sites-area">
+    <div class="row">
+      <div class="col-md-9">
+        <% @temples.each do |h| %>
+        <%= h.en_name %>
+        <%= h.ch_name %>
+        <br>
+        <%= h.description.truncate(200) %>
+        <br>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => :en_name, :value_method => :id %>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section class="nature-tag"><p class="filter"> <%= f.label "Nature", class: "museum-tag"%> </p></section>
+  <br>
+  <section class="sites-area">
+    <div class="row">
+      <div class="col-md-9">
+        <% @museums.each do |h| %>
+        <%= h.en_name %>
+        <%= h.ch_name %>
+        <br>
+        <%= h.description.truncate(200) %>
+        <br>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => :en_name, :value_method => :id %>
+      </div>
+    </div>
+  </section>
+  <%= f.label "End", class: "plan-header" %>
+  <p>Default: Taipei Main Station</p>
+  <%= f.submit %>
   <% end %>
 </div>
