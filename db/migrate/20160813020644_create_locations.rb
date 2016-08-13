@@ -10,7 +10,6 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :location_type
       t.string :lat
       t.string :lng
-      t.integer :plan_id
     end
   end
 end

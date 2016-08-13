@@ -15,6 +15,9 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.create(plan_params)
+    @plan.location_ids = params[:plan][:location_ids]
+    @plan.start_lat = @plan.end_lat = "25.0477498"
+    @plan.start_lng = @plan.start_lng = "121.5170497"
     if @plan.save
       redirect_to root_path
     else
@@ -25,7 +28,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:name, :travel_time, :location_ids)
+    params.permit(:name, :travel_time, :location_ids)
   end
 
   def find_plan

@@ -11,7 +11,7 @@
     <%= h.ch_name %>
     <%= h.description.truncate(200) %>
   <% end %>
-  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => "en_name" %>
+  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => :en_name, :value_method => :id %>
   <br>
   <%= f.label "Temple" %>
   <br>
@@ -20,7 +20,7 @@
     <%= h.ch_name %>
     <%= h.description.truncate(200) %>
   <% end %>
-  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => "en_name" %>
+  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => :en_name, :value_method => :id %>
   <br>
   <%= f.label "Museum" %>
   <br>
@@ -29,7 +29,7 @@
     <%= h.ch_name %>
     <%= h.description.truncate(200) %>
   <% end %>
-  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => "en_name" %>
+  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => :en_name, :value_method => :id %>
   <br>
   <%= f.label "End" %>
   <p>Default: Taipei Main Station</p>
