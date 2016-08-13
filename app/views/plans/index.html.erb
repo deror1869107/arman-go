@@ -1,6 +1,6 @@
-
 <p class="add-plan"><i class="fa fa-plus"></i><%= link_to (' New Plan'), new_plan_path %></p>
+<h3>History Plan</h3>
 
 <% @plans.each do |p| %>
-  <%= p.name %>
+  <p class="planned-lists"><%= p.name %></p>
 <% end %>
