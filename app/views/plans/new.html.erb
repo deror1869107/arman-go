@@ -1,0 +1,37 @@
+<%= simple_form_for @plan do |f| %>
+  <%= f.input :name %>
+
+  <%= f.label "Start" %>
+  <p>Default: Taipei Main Station</p>
+  <br>
+  <%= f.label "Historical sites" %>
+  <br>
+  <% @historicals.each do |h| %>
+    <%= h.en_name %>
+    <%= h.ch_name %>
+    <%= h.description.truncate(200) %>
+  <% end %>
+  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => "en_name" %>
+  <br>
+  <%= f.label "Temple" %>
+  <br>
+  <% @temples.each do |h| %>
+    <%= h.en_name %>
+    <%= h.ch_name %>
+    <%= h.description.truncate(200) %>
+  <% end %>
+  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => "en_name" %>
+  <br>
+  <%= f.label "Museum" %>
+  <br>
+  <% @museums.each do |h| %>
+    <%= h.en_name %>
+    <%= h.ch_name %>
+    <%= h.description.truncate(200) %>
+  <% end %>
+  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => "en_name" %>
+  <br>
+  <%= f.label "End" %>
+  <p>Default: Taipei Main Station</p>
+  <%= f.submit %>
+<% end %>

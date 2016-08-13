@@ -11,6 +11,8 @@ ArmanPlanner::Application.routes.draw do
 
   get "about" => "about#index"
 
+  resources :plans
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

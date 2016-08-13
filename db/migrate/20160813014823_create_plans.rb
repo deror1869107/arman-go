@@ -8,9 +8,10 @@ class CreatePlans < ActiveRecord::Migration
       t.string :start_lng
       t.string :end_lat
       t.string :end_lng
-      t.string :travel_through
       t.string :name
-      t.datetime :travel_time
+      t.date :travel_time
+      t.integer :user_id
+      t.integer :location_id
     end
   end
 end
