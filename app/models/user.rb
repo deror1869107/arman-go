@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and 
+  # :confirmable, :lockable, :timeoutable and
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :plans
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -16,7 +18,7 @@ class User < ActiveRecord::Base
     end
     user
   end
- 
+
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
@@ -29,11 +31,11 @@ class User < ActiveRecord::Base
     end
     user
   end
- 
+
   def self.create_unique_string
     SecureRandom.uuid
   end
- 
+
   def self.create_unique_email
     User.create_unique_string + "@example.com"
   end
