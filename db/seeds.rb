@@ -1,10 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#  Examples:
+#  type 1 history, type 2 temple, type 3 nature
+#  cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#  Mayor.create(name: 'Emanuel', city: cities.first)
 
 
 Location.create(location_type: 1, ch_name: "富貴角燈塔", en_name: "Fugui Cape Lighthouse", lat: "25.2983581", lng: "121.5380556", description: "Fugui Cape Lighthouse is the northernmost landmark on Taiwan Island. It was built in 1897 and stands at 14.3 meters high. All the building materials were shipped from Japan and its black-and-white exterior is very eye-catching, so much so you can see it from miles away! As a functioning lighthouse, the tower is equipped with a foghorn that guides the sailors home when it gets misty at sea. The inside of the lighthouse is not currently open for visitors, but you can stand on the trail looking out at the beautiful Laomei Bay and the amazing geological features in the surrounding.")

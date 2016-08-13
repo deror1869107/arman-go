@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160813040916) do
 
-  create_table "locations", force: true do |t|
+  create_table "locations", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ch_name"
@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20160813040916) do
     t.string   "lng"
   end
 
-  create_table "plan_locationships", force: true do |t|
+  create_table "plan_locationships", force: :cascade do |t|
     t.integer "plan_id"
     t.integer "location_id"
   end
 
-  create_table "plans", force: true do |t|
+  create_table "plans", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "start_lat"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160813040916) do
     t.integer  "user_id"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

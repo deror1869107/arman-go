@@ -1,37 +1,47 @@
-<%= simple_form_for @plan do |f| %>
-  <%= f.input :name %>
-
-  <%= f.label "Start" %>
-  <p>Default: Taipei Main Station</p>
-  <br>
-  <%= f.label "Historical sites" %>
-  <br>
-  <% @historicals.each do |h| %>
-    <%= h.en_name %>
-    <%= h.ch_name %>
-    <%= h.description.truncate(200) %>
+<div class="create-new-plan">
+  <%= simple_form_for @plan do |f| %>
+    <%= f.input :name , class: "plan-header"%>
+    <%= f.label "Start", class: "plan-header" %>
+    <p>Default: Taipei Main Station</p>
+    <br>
+    <section class="museum-tag"> <p class="filter"><%= f.label "Historical sites", class: "historicals-tag" %></p></section>
+    <br>
+    <section class="sites-area">
+    <% @historicals.each do |h| %>
+      <%= h.en_name %>
+      <%= h.ch_name %>
+      <%= h.description.truncate(200) %>
+    <% end %>
+    
+    <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => :en_name, :value_method => :id %>
+    <br>
+    </section>
+    <hr>
+    <section class="temple-tag"><p class="filter"><%= f.label "Temple" , class: "temple-tag"%></p></section>
+    <br>
+    <section class="sites-area">
+    <% @temples.each do |h| %>
+      <%= h.en_name %>
+      <%= h.ch_name %>
+      <%= h.description.truncate(200) %>
+    <% end %>
+    <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => :en_name, :value_method => :id %>
+    <br>
+    </section>
+    <hr>
+    <section class="nature-tag"><p class="filter"> <%= f.label "Nature", class: "museum-tag"%> </p></section>
+    <br>
+    <section class="sites-area">
+    <% @museums.each do |h| %>
+      <%= h.en_name %>
+      <%= h.ch_name %>
+      <%= h.description.truncate(200) %>
+    <% end %>
+    <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => :en_name, :value_method => :id %>
+    </section>
+    <br>
+    <%= f.label "End", class: "plan-header" %>
+    <p>Default: Taipei Main Station</p>
+    <%= f.submit %>
   <% end %>
-  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @historicals, :label_method => :en_name, :value_method => :id %>
-  <br>
-  <%= f.label "Temple" %>
-  <br>
-  <% @temples.each do |h| %>
-    <%= h.en_name %>
-    <%= h.ch_name %>
-    <%= h.description.truncate(200) %>
-  <% end %>
-  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @temples, :label_method => :en_name, :value_method => :id %>
-  <br>
-  <%= f.label "Museum" %>
-  <br>
-  <% @museums.each do |h| %>
-    <%= h.en_name %>
-    <%= h.ch_name %>
-    <%= h.description.truncate(200) %>
-  <% end %>
-  <%= f.association :locations, :label => false, :as => :check_boxes, collection: @museums, :label_method => :en_name, :value_method => :id %>
-  <br>
-  <%= f.label "End" %>
-  <p>Default: Taipei Main Station</p>
-  <%= f.submit %>
-<% end %>
+</div>
