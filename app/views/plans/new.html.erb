@@ -1,3 +1,7 @@
+<% @historicals = Location.all.select { |l| l.location_type == 1 } %>
+<% @temples = Location.all.select { |l| l.location_type == 2 } %>
+<% @museums = Location.all.select { |l| l.location_type == 3 } %>
+
 <%= simple_form_for @plan do |f| %>
   <%= f.input :name %>
 
